@@ -1,0 +1,19 @@
+{
+  "name": "q1-node-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node ./Database/seed.js",
+    "seedAndStart":"node ./Database/seed.js && npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.6.7",
+    "binance-api-node": "^0.11.35",
+    "mongoose": "^6.3.1"
+  }
+}

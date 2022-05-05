@@ -1,0 +1,13 @@
+{
+    "database": {
+        "dev_collection_name": "mongo_db",
+        "test_collection_name": "test_mongo_db",
+        "host": "localhost",
+        "seed":{}
+    },
+    "server": {
+        "port": 9000,
+        "host": "localhost",
+        "path": "/graphql"
+    }
+}

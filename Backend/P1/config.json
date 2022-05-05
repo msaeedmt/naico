@@ -1,0 +1,14 @@
+{
+    "database": {
+        "collection_name": "mongo_db",
+        "host": "localhost",
+        "seed":{
+            "ticker":"BTCUSDT"
+        }
+    },
+    "server": {
+        "port": 9000,
+        "host": "localhost",
+        "path": "/graphql"
+    }
+}
