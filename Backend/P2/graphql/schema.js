@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const typeDefs = gql`
   enum StatusEnum {
@@ -36,6 +36,6 @@ const typeDefs = gql`
     allSignals: [Signal!]!
     getAnalysts: [analystDecisions!]!
   }
-`;
+`
 
-module.exports = typeDefs;
+module.exports = typeDefs

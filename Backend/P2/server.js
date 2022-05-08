@@ -1,36 +1,36 @@
-const { ApolloServer } = require('apollo-server-express');
-const { ApolloServerPluginDrainHttpServer } = require('apollo-server-core');
-const http = require('http');
-const express = require("express");
+const { ApolloServer } = require('apollo-server-express')
+const { ApolloServerPluginDrainHttpServer } = require('apollo-server-core')
+const http = require('http')
+const express = require('express')
 
 const config = require('./config/config.json')
-const typeDefs = require('./graphql/schema');
-const resolvers = require('./graphql/resolvers');
-const db = require('./database/database')
-const models = require('./database/models');
+const typeDefs = require('./graphql/schema')
+const resolvers = require('./graphql/resolvers')
+const models = require('./database/models')
 
-const app = express();
+require('./database/database')
 
-async function startApolloServer() {
-  
-  const httpServer = http.createServer(app);
+const app = express()
+
+async function startApolloServer () {
+  const httpServer = http.createServer(app)
   const server = new ApolloServer({
     typeDefs,
     resolvers,
     context: { models },
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-  });
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
+  })
 
-  await server.start();
+  await server.start()
   server.applyMiddleware({
     app,
     path: config.server.path
-  });
+  })
 
-  await new Promise(resolve => httpServer.listen({ port: process.env.PORT }, resolve));
-  console.log(`Server ready at http://${config.server.host}:${process.env.PORT}${server.graphqlPath}`);
+  await new Promise(resolve => httpServer.listen({ port: process.env.PORT }, resolve))
+  console.log(`Server ready at http://${config.server.host}:${process.env.PORT}${server.graphqlPath}`)
 }
 
 startApolloServer()
 
-module.exports = {app}
+module.exports = { app }
