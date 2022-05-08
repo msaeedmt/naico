@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const typeDefs = gql`
   type Candle {
@@ -18,6 +18,6 @@ const typeDefs = gql`
     candle(id: String!): Candle
     allCandles(ticker: String!): [Candle!]!
   }
-`;
+`
 
-module.exports = typeDefs;
+module.exports = typeDefs
